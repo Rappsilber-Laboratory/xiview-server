@@ -45,8 +45,14 @@
 
 <script>
     //<![CDATA[
-    xiview.validationPage("https://www.ebi.ac.uk/pride/ws/archive/crosslinking/v3/data/", "xiAnnotator/");
-    //xiview.validationPage("http://127.0.0.1:5005/pride/ws/archive/crosslinking/v2/data/", "xiAnnotator/");
+
+    const APIS = {
+        'pride-prod':  "https://www.ebi.ac.uk/pride/ws/archive/crosslinking/v3/data/",
+        'pride-local': "http://0.0.0.0:5005/pride/ws/archive/crosslinking/v3/data/",
+        'xi2-local':   "http://0.0.0.0:5005/xi2/data/",
+    };
+    const apiKey = new URLSearchParams(location.search).get('api') || 'pride-prod';
+    xiview.validationPage(APIS[apiKey] || APIS['pride-prod'], "xiAnnotator/");
     //]]>
 </script>
 </body>
