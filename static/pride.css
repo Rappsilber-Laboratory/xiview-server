@@ -26,18 +26,6 @@
     display: none !important;
 }
 
-#loadLayoutButton {
-    display: none !important;
-}
-
-.savedLayoutName {
-    display: none !important;
-}
-
-.saveLayoutButton {
-    display: none !important;
-}
-
 #expDropdownPlaceholder > div > ul > li.sectionEnd {
     display: none !important;
 }
