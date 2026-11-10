@@ -8,19 +8,23 @@ flask = {extras = ["async"], version = "*"}
 flask_cors = "*"
 flask-compress = "*"
 psycopg2-binary = "2.9.5"
-python-dotenv = "*"
+python-dotenv = ">=1.2.2"
 click = "8.1.3" #Use Click 8.1.3 or earlier (>=7.1.2) for Python 3.9.
 waitress = "*"
 zipfile_deflate64 = "*"
+# security floors for transitive dependencies (remove once parents require them)
+brotli = ">=1.2.1"  # GHSA-9v8h-qqgm-4m35, via flask-compress
+werkzeug = ">=3.1.9"  # GHSA-g6x2-hccm-hh4m, via flask
 #
 [dev-packages]
 Markdown = "*"
 pytest-cov = "*"
 pytest-flask = "*"
 pytest-pydocstyle = "*"
-pytest = ">=3.6.4"
+pytest = ">=9.0.3,<9.1"  # <9.1: pytest-flake8 1.3.0 (latest) breaks on pytest 9.1+ hookspec
 pytest-pep8 = "*"
 flake8 = ">=3.7.7"
+pygments = ">=2.20.0"  # GHSA-5239-wwwm-4pmq, security floor via pytest
 pytest-flake8 = "*"
 
 [requires]
